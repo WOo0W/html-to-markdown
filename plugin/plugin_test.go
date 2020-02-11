@@ -3,7 +3,7 @@ package plugin
 import (
 	"testing"
 
-	"github.com/JohannesKaufmann/html-to-markdown"
+	md "github.com/WOo0W/html-to-markdown"
 )
 
 func TestStrikethroughDefault(t *testing.T) {

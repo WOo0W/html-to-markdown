@@ -6,15 +6,15 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	md "github.com/WOo0W/html2md"
+	"github.com/WOo0W/html2md"
 )
 
 var youtubeID = regexp.MustCompile(`youtube\.com\/embed\/([^\&\?\/]+)`)
 
-var EXPERIMENTAL_YoutubeEmbed = []md.Rule{
-	md.Rule{
+var EXPERIMENTAL_YoutubeEmbed = []html2md.Rule{
+	html2md.Rule{
 		Filter: []string{"iframe"},
-		Replacement: func(content string, selec *goquery.Selection, opt *md.Options) *string {
+		Replacement: func(content string, selec *goquery.Selection, opt *html2md.Options) *string {
 			src := selec.AttrOr("src", "")
 			if !strings.Contains(src, "www.youtube.com") {
 				return nil

@@ -9,8 +9,9 @@ import (
 	"time"
 	"unicode/utf8"
 
+	"github.com/WOo0W/html2md"
+
 	"github.com/PuerkitoBio/goquery"
-	md "github.com/WOo0W/html2md"
 )
 
 var Timeout = time.Second * 10
@@ -56,8 +57,8 @@ const (
 	VimeoWithDescription
 )
 
-func EXPERIMENTAL_VimeoEmbed(variation vimeoVariation) md.Plugin {
-	return func(c *md.Converter) []md.Rule {
+func EXPERIMENTAL_VimeoEmbed(variation vimeoVariation) html2md.Plugin {
+	return func(c *html2md.Converter) []html2md.Rule {
 		getVimeoData := func(id string) (*vimeoVideo, error) {
 			u := fmt.Sprintf("http://vimeo.com/api/oembed.json?url=https://vimeo.com/%s", id)
 
@@ -92,10 +93,10 @@ func EXPERIMENTAL_VimeoEmbed(variation vimeoVariation) md.Plugin {
 			return text, nil
 		}
 
-		return []md.Rule{
-			md.Rule{
+		return []html2md.Rule{
+			html2md.Rule{
 				Filter: []string{"iframe"},
-				Replacement: func(content string, selec *goquery.Selection, opt *md.Options) *string {
+				Replacement: func(content string, selec *goquery.Selection, opt *html2md.Options) *string {
 					src := selec.AttrOr("src", "")
 					if !strings.Contains(src, "vimeo.com") {
 						return nil

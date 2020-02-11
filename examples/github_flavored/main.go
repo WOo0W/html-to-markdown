@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	md "github.com/WOo0W/html2md"
+	"github.com/WOo0W/html2md"
 	"github.com/WOo0W/html2md/plugin"
 )
 
@@ -20,7 +20,7 @@ func main() {
 		- [ ] Check Me!
 	*/
 
-	conv := md.NewConverter("", true, nil)
+	conv := html2md.NewConverter("", true, nil)
 
 	// Use the `GitHubFlavored` plugin from the `plugin` package.
 	conv.Use(plugin.GitHubFlavored())

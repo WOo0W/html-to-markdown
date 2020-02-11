@@ -1,6 +1,6 @@
-// package html2md converts html to markdown.
+// Package html2md converts html to markdown.
 //
-//  converter := md.NewConverter("", true, nil)
+//  converter := html2md.NewConverter("", true, nil)
 //
 //  html = `<strong>Important</strong>`
 //

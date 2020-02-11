@@ -3,11 +3,11 @@ package plugin
 import (
 	"testing"
 
-	md "github.com/WOo0W/html2md"
+	"github.com/WOo0W/html2md"
 )
 
 func TestStrikethroughDefault(t *testing.T) {
-	conv := md.NewConverter("", true, nil)
+	conv := html2md.NewConverter("", true, nil)
 	conv.Use(Strikethrough(""))
 
 	input := `<p>Strikethrough uses two tildes. <del>Scratch this.</del></p>`
@@ -22,7 +22,7 @@ func TestStrikethroughDefault(t *testing.T) {
 	}
 }
 func TestStrikethrough(t *testing.T) {
-	conv := md.NewConverter("", true, nil)
+	conv := html2md.NewConverter("", true, nil)
 	conv.Use(Strikethrough("~~"))
 
 	input := `<p>Strikethrough uses two tildes. <del>Scratch this.</del></p>`
@@ -38,7 +38,7 @@ func TestStrikethrough(t *testing.T) {
 }
 
 func TestTaskListItems(t *testing.T) {
-	conv := md.NewConverter("", true, nil)
+	conv := html2md.NewConverter("", true, nil)
 	conv.Use(TaskListItems())
 
 	input := `

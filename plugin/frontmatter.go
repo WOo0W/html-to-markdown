@@ -3,7 +3,7 @@ package plugin
 import (
 	"fmt"
 
-	md "github.com/WOo0W/html2md"
+	"github.com/WOo0W/html2md"
 	yaml "gopkg.in/yaml.v2"
 )
 
@@ -11,8 +11,8 @@ import (
 
 // TODO: automatically convert to formats (look at hugo)
 
-func EXPERIMENTAL_FrontMatter(format string) md.Plugin {
-	return func(c *md.Converter) []md.Rule {
+func EXPERIMENTAL_FrontMatter(format string) html2md.Plugin {
+	return func(c *html2md.Converter) []html2md.Rule {
 		data := make(map[string]interface{})
 
 		d, err := yaml.Marshal(data)

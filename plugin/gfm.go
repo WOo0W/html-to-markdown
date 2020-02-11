@@ -2,13 +2,11 @@
 // part of Commonmark like GitHub Flavored Markdown.
 package plugin
 
-import (
-	md "github.com/WOo0W/html2md"
-)
+import "github.com/WOo0W/html2md"
 
 // GitHubFlavored is GitHub's Flavored Markdown
-func GitHubFlavored() md.Plugin {
-	return func(c *md.Converter) (rules []md.Rule) {
+func GitHubFlavored() html2md.Plugin {
+	return func(c *html2md.Converter) (rules []html2md.Rule) {
 		rules = append(rules, Strikethrough("")(c)...)
 		rules = append(rules, EXPERIMENTAL_Table...)
 		rules = append(rules, TaskListItems()(c)...)

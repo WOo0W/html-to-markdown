@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	md "github.com/WOo0W/html2md"
+	"github.com/WOo0W/html2md"
 )
 
 func main() {
@@ -12,10 +12,10 @@ func main() {
 	// -> `__Bold Text__`
 	// instead of `**Bold Text**`
 
-	opt := &md.Options{
+	opt := &html2md.Options{
 		StrongDelimiter: "__", // default: **
 	}
-	conv := md.NewConverter("", true, opt)
+	conv := html2md.NewConverter("", true, opt)
 
 	markdown, err := conv.ConvertString(html)
 	if err != nil {

@@ -3,24 +3,25 @@ package plugin
 import (
 	"strings"
 
+	"github.com/WOo0W/html2md"
+
 	"github.com/PuerkitoBio/goquery"
-	md "github.com/WOo0W/html2md"
 )
 
 // Strikethrough converts `<strike>`, `<s>`, and `<del>` elements
-func Strikethrough(character string) md.Plugin {
-	return func(c *md.Converter) []md.Rule {
+func Strikethrough(character string) html2md.Plugin {
+	return func(c *html2md.Converter) []html2md.Rule {
 		if character == "" {
 			character = "~"
 		}
 
-		return []md.Rule{
-			md.Rule{
+		return []html2md.Rule{
+			html2md.Rule{
 				Filter: []string{"del", "s", "strike"},
-				Replacement: func(content string, selec *goquery.Selection, opt *md.Options) *string {
+				Replacement: func(content string, selec *goquery.Selection, opt *html2md.Options) *string {
 					// trim spaces so that the following does NOT happen: `~ and cake~`
 					content = strings.TrimSpace(content)
-					return md.String(character + content + character)
+					return html2md.String(character + content + character)
 				},
 			},
 		}

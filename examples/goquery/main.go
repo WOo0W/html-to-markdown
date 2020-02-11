@@ -4,9 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	md "github.com/WOo0W/html2md"
-
 	"github.com/PuerkitoBio/goquery"
+	"github.com/WOo0W/html2md"
 )
 
 func main() {
@@ -17,7 +16,7 @@ func main() {
 	}
 	content := doc.Find("#content")
 
-	conv := md.NewConverter(md.DomainFromURL(url), true, nil)
+	conv := html2md.NewConverter(html2md.DomainFromURL(url), true, nil)
 	markdown := conv.Convert(content)
 
 	fmt.Println(markdown)

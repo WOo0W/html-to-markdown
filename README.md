@@ -15,7 +15,7 @@ go get github.com/WOo0W/html2md
 ```go
 import "github.com/WOo0W/html2md"
 
-converter := md.NewConverter("", true, nil)
+converter := html2md.NewConverter("", true, nil)
 
 html = `<strong>Important</strong>`
 
@@ -34,16 +34,16 @@ markdown, err := converter.Convert(selec)
 
 ## Options
 
-The third parameter to `md.NewConverter` is `*md.Options`.
+The third parameter to `html2md.NewConverter` is `*html2md.Options`.
 
 For example you can change the character that is around a bold text ("`**`") to a different one (for example "`__`") by changing the value of `StrongDelimiter`.
 
 ```go
-opt := &md.Options{
+opt := &html2md.Options{
   StrongDelimiter: "__", // default: **
   // ...
 }
-converter := md.NewConverter("", true, opt)
+converter := html2md.NewConverter("", true, opt)
 ```
 
 For all the possible options look at [godocs](https://godoc.org/github.com/WOo0W/html2md/#Options) and for a example look at the [example](/examples/options/main.go).
@@ -52,15 +52,15 @@ For all the possible options look at [godocs](https://godoc.org/github.com/WOo0W
 
 ```go
 converter.AddRules(
-  md.Rule{
+  html2md.Rule{
     Filter: []string{"del", "s", "strike"},
-    Replacement: func(content string, selec *goquery.Selection, opt *md.Options) *string {
-      // You need to return a pointer to a string (md.String is just a helper function).
+    Replacement: func(content string, selec *goquery.Selection, opt *html2md.Options) *string {
+      // You need to return a pointer to a string (html2md.String is just a helper function).
       // If you return nil the next function for that html element
       // will be picked. For example you could only convert an element
       // if it has a certain class name and fallback if not.
       content = strings.TrimSpace(content)
-      return md.String("~" + content + "~")
+      return html2md.String("~" + content + "~")
     },
   },
   // more rules

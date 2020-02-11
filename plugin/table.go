@@ -2,23 +2,23 @@ package plugin
 
 import (
 	"github.com/PuerkitoBio/goquery"
-	md "github.com/WOo0W/html2md"
+	"github.com/WOo0W/html2md"
 )
 
 // TODO: maybe something like TableCompat for environments
 // where only commonmark markdown is supported.
 
 // EXPERIMENTAL_Table converts a html table to markdown.
-var EXPERIMENTAL_Table = []md.Rule{
-	md.Rule{ // TableCell
+var EXPERIMENTAL_Table = []html2md.Rule{
+	html2md.Rule{ // TableCell
 		Filter: []string{"th", "td"},
-		Replacement: func(content string, selec *goquery.Selection, opt *md.Options) *string {
-			return md.String(cell(content, selec))
+		Replacement: func(content string, selec *goquery.Selection, opt *html2md.Options) *string {
+			return html2md.String(cell(content, selec))
 		},
 	},
-	md.Rule{ // TableRow
+	html2md.Rule{ // TableRow
 		Filter: []string{"tr"},
-		Replacement: func(content string, selec *goquery.Selection, opt *md.Options) *string {
+		Replacement: func(content string, selec *goquery.Selection, opt *html2md.Options) *string {
 			borderCells := ""
 
 			if isHeadingRow(selec) {

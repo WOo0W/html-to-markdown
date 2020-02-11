@@ -3,7 +3,7 @@ package plugin
 import (
 	"fmt"
 
-	md "github.com/WOo0W/html-to-markdown"
+	md "github.com/WOo0W/html2md"
 	yaml "gopkg.in/yaml.v2"
 )
 

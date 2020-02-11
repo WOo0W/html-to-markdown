@@ -7,13 +7,13 @@ Convert HTML into Markdown with Go.
 ## Installation
 
 ```sh
-go get github.com/WOo0W/html-to-markdown
+go get github.com/WOo0W/html2md
 ```
 
 ## Usage
 
 ```go
-import "github.com/WOo0W/html-to-markdown"
+import "github.com/WOo0W/html2md"
 
 converter := md.NewConverter("", true, nil)
 
@@ -46,7 +46,7 @@ opt := &md.Options{
 converter := md.NewConverter("", true, opt)
 ```
 
-For all the possible options look at [godocs](https://godoc.org/github.com/WOo0W/html-to-markdown/#Options) and for a example look at the [example](/examples/options/main.go).
+For all the possible options look at [godocs](https://godoc.org/github.com/WOo0W/html2md/#Options) and for a example look at the [example](/examples/options/main.go).
 
 ## Adding Rules
 
@@ -74,8 +74,8 @@ For more information have a look at the example [add_rules](/examples/add_rules/
 If you want plugins (github flavored markdown like striketrough, tables, ...) you can pass it to `Use`.
 
 ```go
-import "github.com/WOo0W/html-to-markdown/plugin"
-  
+import "github.com/WOo0W/html2md/plugin"
+
 // Use the `GitHubFlavored` plugin from the `plugin` package.
 converter.Use(plugin.GitHubFlavored())
 ```
@@ -95,7 +95,7 @@ Have a look at the [plugin folder](/plugin) for a reference implementation. The 
 
 ## Other Methods
 
-[Godoc](https://godoc.org/github.com/WOo0W/html-to-markdown)
+[Godoc](https://godoc.org/github.com/WOo0W/html2md)
 
 ### `func (c *Converter) Keep(tags ...string) *Converter`
 
@@ -103,7 +103,7 @@ Determines which elements are to be kept and rendered as HTML.
 
 ### `func (c *Converter) Remove(tags ...string) *Converter`
 
-Determines which elements are to be removed altogether i.e. converted to an empty string. 
+Determines which elements are to be removed altogether i.e. converted to an empty string.
 
 ## Related Projects
 

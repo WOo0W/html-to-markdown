@@ -1,4 +1,4 @@
-package md
+package html2md
 
 import (
 	"bytes"

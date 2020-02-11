@@ -3,7 +3,7 @@
 package plugin
 
 import (
-	md "github.com/WOo0W/html-to-markdown"
+	md "github.com/WOo0W/html2md"
 )
 
 // GitHubFlavored is GitHub's Flavored Markdown

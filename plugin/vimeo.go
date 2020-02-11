@@ -10,7 +10,7 @@ import (
 	"unicode/utf8"
 
 	"github.com/PuerkitoBio/goquery"
-	md "github.com/WOo0W/html-to-markdown"
+	md "github.com/WOo0W/html2md"
 )
 
 var Timeout = time.Second * 10

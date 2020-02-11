@@ -4,8 +4,8 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/WOo0W/html-to-markdown"
-	"github.com/WOo0W/html-to-markdown/plugin"
+	md "github.com/WOo0W/html2md"
+	"github.com/WOo0W/html2md/plugin"
 )
 
 func main() {

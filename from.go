@@ -1,4 +1,4 @@
-// Package md converts html to markdown.
+// package html2md converts html to markdown.
 //
 //  converter := md.NewConverter("", true, nil)
 //
@@ -11,7 +11,7 @@
 //  fmt.Println("md ->", markdown)
 // Or if you are already using goquery:
 //  markdown, err := converter.Convert(selec)
-package md
+package html2md
 
 import (
 	"bytes"

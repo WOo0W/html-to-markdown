@@ -1,4 +1,4 @@
-package md
+package html2md
 
 import (
 	"fmt"
@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/PuerkitoBio/goquery"
-	"github.com/WOo0W/html-to-markdown/escape"
+	"github.com/WOo0W/html2md/escape"
 )
 
 var multipleSpacesR = regexp.MustCompile(`  +`)

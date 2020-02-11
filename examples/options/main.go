@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/WOo0W/html-to-markdown"
+	md "github.com/WOo0W/html2md"
 )
 
 func main() {
